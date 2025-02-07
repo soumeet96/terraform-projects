@@ -21,7 +21,7 @@ Before running this Terraform configuration, ensure you have:
 
 ### Step 1: Clone the Repository
 ```sh
-git clone https://github.com/your-github-username/terraform-projects
+git clone https://github.com/soumeet96/terraform-projects
 cd Project-1
 ```
 
