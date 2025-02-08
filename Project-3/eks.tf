@@ -3,15 +3,16 @@ module "eks" {
   cluster_name    = "eks-cluster"
   cluster_version = "1.25"
 
-  subnets = [aws_subnet.public_subnet_a.id, aws_subnet.private_subnet.id]
+  subnet_ids = [aws_subnet.public_subnet_a.id, aws_subnet.private_subnet.id]
   vpc_id  = aws_vpc.eks_vpc.id
 
-  node_groups = {
+  eks_managed_node_groups = {
     eks_nodes = {
-      desired_capacity = 2
-      max_capacity     = 3
-      min_capacity     = 1
-      instance_type    = "t3.medium"
+      desired_size = 2
+      max_size     = 3
+      min_size     = 1
+      instance_types = ["t3.medium"]
+      subnet_ids     = [aws_subnet.public_subnet_a.id, aws_subnet.private_subnet.id]
     }
   }
 
