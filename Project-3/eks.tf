@@ -13,6 +13,7 @@ module "eks" {
       min_size     = 1
       instance_types = ["t3.medium"]
       subnet_ids     = [aws_subnet.public_subnet_a.id, aws_subnet.private_subnet.id]
+      iam_role         = aws_iam_role.eks_node_role.arn
     }
   }
 
